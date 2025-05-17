@@ -35,47 +35,33 @@ SalesFlow is built using a modern microservices architecture with the following 
 
 SalesFlow is organized into several key modules, each designed to handle a specific aspect of sales management:
 
-1.  **User Management**
-    * Roles: Admin, Sales Representative
-    * Authentication & authorization (JWT)
-    * Audit tracking of user actions
+1.  **Auth Service**
+    * Handles login, JWT-based authentication, and user roles (ADMIN, SALES\_REP)
+    * Registers users and issues secure tokens
     * <span style="color: #3498db;">Key Functionality:</span> Securely manage users and their permissions.
 
-2.  **Supplier Management**
-    * Manage supplier profiles
-    * Track purchases from suppliers
-    * View purchase history
+2.  **Product & Supplier Service**
+    * Manages product catalog
+    * Tracks stock levels (inventory)
+    * Maintains supplier information
     * <span style="color: #3498db;">Key Functionality:</span> Efficiently manage supplier information and track purchases.
 
-3.  **Product & Inventory Management**
-    * CRUD for products with SKU, price, stock
-    * Inventory tracking (stock in/out)
-    * Low stock alerts
-    * <span style="color: #3498db;">Key Functionality:</span> Keep a close eye on your inventory and product details.
-
-4.  **Sales Order Management**
-    * Create & manage customer orders
-    * Real-time stock check
-    * Order status: Pending, Confirmed, Delivered
+3.  **Sales Service**
+    * Handles sales orders and cart management
+    * Manages customer details
+    * Tracks payments and invoices
+    * Updates product inventory after sales
     * <span style="color: #3498db;">Key Functionality:</span> Manage sales orders from creation to delivery.
 
-5.  **Customer Management**
-    * Manage customer profiles
-    * Track sales history per customer
-    * <span style="color: #3498db;">Key Functionality:</span> Maintain detailed customer profiles and track their purchase history.
-
-6.  **Payment & Invoice Management**
-    * Create invoices linked to sales orders
-    * Track payments (Cash, Card, Bank)
-    * View payment status: Paid, Unpaid, Partial
-    * <span style="color: #3498db;">Key Functionality:</span> Handle invoicing and payment tracking with ease.
-
-7.  **Dashboard & Reports**
-    * Daily/Monthly sales overview
-    * Best-selling products
-    * Payments due
-    * Inventory status
+4.  **Report Service**
+    * Generates reports: sales summary, daily sales, inventory levels, customer payments, etc.
     * <span style="color: #3498db;">Key Functionality:</span> Get a bird's-eye view of your sales performance with insightful reports.
+
+5.  **Gateway Service (Spring Cloud Gateway)**
+    * Entry point for frontend (Next.js)
+    * Routes requests to backend services
+    * Handles authentication and authorization with JWT filter
+    * <span style="color: #3498db;">Key Functionality:</span> Acts as a single entry point for the application, handling routing and security.
 
 ---
 
