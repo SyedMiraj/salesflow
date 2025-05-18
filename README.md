@@ -81,6 +81,61 @@ graph TD;
   Gateway --> ReportService
 ```
 
+---
+
+## 🛠️ Deployment Lifecycle
+
+This diagram illustrates the complete flow of the Sales Management System from development to deployment using Docker and Kubernetes on AWS EC2. The system includes microservices, CI/CD pipeline, and PostgreSQL running in a container within the Kubernetes cluster.
+
+```mermaid
+graph LR
+  subgraph Dev["🧑‍💻 Development"]
+    A1[Write Code in Microservices\n(Spring Boot, Next.js)]
+    A2[Use Common Module for Shared DTOs/Utils]
+    A3[Commit Code to GitHub Repo]
+  end
+
+  subgraph CI["⚙️ CI with GitHub Actions"]
+    B1[Run Unit Tests]
+    B2[Build JARs and Docker Images]
+    B3[Push Images to Docker Hub or ECR]
+  end
+
+  subgraph CD["🚀 CD with Kubernetes"]
+    C1[Connect to AWS EC2-based K8s Cluster]
+    C2[Apply Kubernetes YAMLs]
+    C3[Create Deployments, Services, Ingress]
+    C4[Load Balancer Exposes Gateway Service]
+  end
+
+  subgraph Ops["🧩 System Running on K8s"]
+    D1[Auth Service Pod]
+    D2[Inventory Service Pod]
+    D3[Sales Service Pod]
+    D4[Report Service Pod]
+    D5[Gateway Service Pod]
+    D6[(PostgreSQL DB Pod)]
+  end
+
+  subgraph FE["🖥️ Frontend"]
+    E1[Next.js App Connects to Gateway via HTTPS]
+  end
+
+  %% Flows
+  A1 --> A2 --> A3 --> B1 --> B2 --> B3 --> C1 --> C2 --> C3 --> C4
+  C4 --> E1
+  C3 --> D1
+  C3 --> D2
+  C3 --> D3
+  C3 --> D4
+  C3 --> D5
+  D1 --> D6
+  D2 --> D6
+  D3 --> D6
+  D4 --> D6
+```
+
+---
 
 ## 📄 License
 
