@@ -73,6 +73,7 @@ SalesFlow is organized into several key modules, each designed to handle a speci
 ## 🧭 System Architecture Diagram
 
 ```mermaid
+graph TD;
   Frontend[Next.js] --> Gateway[Spring Cloud Gateway]
   Gateway --> AuthService
   Gateway --> InventoryService
