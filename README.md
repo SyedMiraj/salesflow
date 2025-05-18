@@ -90,7 +90,7 @@ This diagram illustrates the complete flow of the Sales Management System from d
 ```mermaid
 graph LR
   subgraph Dev["🧑‍💻 Development"]
-    A1[Write Code in Microservices\n(Spring Boot, Next.js)]
+    A1[Write Code in Microservices (Spring Boot, Next.js)]
     A2[Use Common Module for Shared DTOs/Utils]
     A3[Commit Code to GitHub Repo]
   end
