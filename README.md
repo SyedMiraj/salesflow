@@ -25,7 +25,7 @@ SalesFlow is built using a modern microservices architecture with the following 
 * PostgreSQL DB
 * Kafka for logging and order events
 * Docker & Kubernetes for deployment
-* AWS RDS + S3 for persistence
+* AWS S3 for persistence
 * GitHub Actions for CI/CD
 * Next.js (React) frontend with clean UI per module
 
